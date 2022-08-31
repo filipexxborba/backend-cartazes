@@ -1,8 +1,8 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
-import Sales from "./Routes/Sales";
-import Products from "./Routes/Products";
+import Sales from "./routes/Sales";
+import Products from "./routes/Products";
 require("dotenv").config();
 
 mongoose.connect(process.env.DB_URI!);

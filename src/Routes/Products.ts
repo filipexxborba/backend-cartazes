@@ -1,4 +1,4 @@
-import express, { Request, response, Response } from "express";
+import express, { Request, Response } from "express";
 import mongoose from "mongoose";
 const router = express.Router();
 
@@ -13,7 +13,7 @@ router.get("/", (_, res: Response) => {
 });
 
 // This route will create a new Product
-router.post("/", (req: Request, res: Response) => {
+router.post("/create", (req: Request, res: Response) => {
   const { product_title, product_subtitle, ref_int, posters_layouts } =
     req.body;
   const newProduct = new Product({
@@ -31,7 +31,7 @@ router.post("/", (req: Request, res: Response) => {
 });
 
 // This route will find and update the Products info's
-router.patch("/", (req: Request, res: Response) => {
+router.patch("/edit", (req: Request, res: Response) => {
   const { product_title, product_subtitle, ref_int, posters_layouts, _id } =
     req.body;
   Product.findByIdAndUpdate(
@@ -50,7 +50,7 @@ router.patch("/", (req: Request, res: Response) => {
 });
 
 // This route will delete the product with find by id
-router.delete("/", (req: Request, res: Response) => {
+router.delete("/delete", (req: Request, res: Response) => {
   Product.findByIdAndRemove(req.body._id, (error: Error, _: typeof Product) => {
     if (error) res.status(500).send(error);
     res.status(200).send(`Foi excluído o produto com o ID: ${req.body._id}`);

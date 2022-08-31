@@ -14,7 +14,7 @@ router.get("/", (_, res: Response) => {
 });
 
 // This route will create a new Sale in MongoDB
-router.post("/", (req: Request, res: Response) => {
+router.post("/create", (req: Request, res: Response) => {
   const { title, start_date, end_date, branch_list } = req.body;
   const newSale = new Sale({
     _id: new mongoose.Types.ObjectId(),
@@ -33,7 +33,7 @@ router.post("/", (req: Request, res: Response) => {
 });
 
 // This route will find and update the Sale info's
-router.patch("/", (req: Request, res: Response) => {
+router.patch("/edit", (req: Request, res: Response) => {
   const { title, start_date, end_date, branch_list, products_list, _id } =
     req.body;
   Sale.findByIdAndUpdate(
@@ -55,7 +55,7 @@ router.patch("/", (req: Request, res: Response) => {
 });
 
 // This route will delete the sales with find by ID
-router.delete("/", (req: Request, res: Response) => {
+router.delete("/delete", (req: Request, res: Response) => {
   const { _id } = req.body;
   Sale.findByIdAndDelete(_id, (error: Error, _: typeof Sale) => {
     if (error) res.status(500).send(error);
