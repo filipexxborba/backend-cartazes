@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import Sales from "./Routes/Sales";
+import Products from "./Routes/Products";
 require("dotenv").config();
 
 mongoose.connect(process.env.DB_URI!);
@@ -20,6 +21,7 @@ server.use(express.urlencoded({ extended: true }));
 
 // Routes
 server.use("/sales", Sales);
+server.use("/products", Products);
 
 server.listen(process.env.PORT || 3000, () =>
   console.log(
