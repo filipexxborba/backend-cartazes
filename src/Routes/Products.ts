@@ -27,8 +27,8 @@ router.post("/create", (req: Request, res: Response) => {
   console.log(product_title, product_subtitle, ref_int);
   const newProduct = new Product({
     _id: new mongoose.Types.ObjectId(),
-    product_title: product_title.replaceAll("/", "-"),
-    product_subtitle: product_subtitle.replaceAll("/", "-"),
+    product_title: product_title,
+    product_subtitle: product_subtitle,
     ref_int: ref_int,
     posters_layouts: posters_layouts,
   });
