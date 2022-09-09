@@ -39,8 +39,4 @@ export const branchList = [
     name: "P10 - Toledo",
     _id: 10,
   },
-  {
-    name: "P11 - SoHo AD",
-    _id: 11,
-  },
 ];
