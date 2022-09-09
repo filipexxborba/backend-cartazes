@@ -24,6 +24,7 @@ router.get("/:id", (req: Request, res: Response) => {
 router.post("/create", (req: Request, res: Response) => {
   const { product_title, product_subtitle, ref_int, posters_layouts } =
     req.body;
+  console.log(product_title, product_subtitle, ref_int);
   const newProduct = new Product({
     _id: new mongoose.Types.ObjectId(),
     product_title: product_title.replaceAll("/", "-"),

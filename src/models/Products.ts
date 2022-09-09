@@ -7,7 +7,7 @@ interface IPoster {
   value?: string;
   valuePreviously?: string;
   unidade_venda?: string;
-  ref_int?: number;
+  ref_int?: number | string;
   validate?: string;
   stock?: string;
   _id?: string;
